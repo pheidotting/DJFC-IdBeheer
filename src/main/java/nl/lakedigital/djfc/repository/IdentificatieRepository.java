@@ -1,17 +1,16 @@
 package nl.lakedigital.djfc.repository;
 
 import nl.lakedigital.djfc.domain.Identificatie;
-import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
-import org.apache.commons.lang3.builder.ToStringStyle;
-import org.hibernate.*;
-import org.hibernate.resource.transaction.spi.TransactionStatus;
+import org.hibernate.HibernateException;
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static com.google.common.collect.Lists.newArrayList;
@@ -27,6 +26,7 @@ public class IdentificatieRepository {
         try {
             return sessionFactory.getCurrentSession();
         } catch (HibernateException e) {
+            LOGGER.trace("{}", e);
             return sessionFactory.openSession();
         }
     }

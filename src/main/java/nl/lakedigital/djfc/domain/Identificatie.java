@@ -14,7 +14,7 @@ import java.util.UUID;
                 @NamedQuery(name = "Identificatie.zoekOpIdentificatieCode", query = "select i from Identificatie i where i.identificatie = :identificatie")//
         }//
 )
-public class Identificatie implements Serializable, Cloneable {
+public class Identificatie implements Serializable {
     private static final long serialVersionUID = 1011438129295546984L;
 
     @Id

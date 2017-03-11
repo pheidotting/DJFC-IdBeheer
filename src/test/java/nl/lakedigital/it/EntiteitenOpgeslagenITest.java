@@ -95,7 +95,7 @@ public class EntiteitenOpgeslagenITest {
         try {
             Thread.sleep(500);
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            LOGGER.trace("{}", e);
         }
         AbstractSender entiteitenOpgeslagenRequestSender = new AbstractSender<EntiteitenOpgeslagenRequest, List<SoortEntiteitEnEntiteitId>>() {
             @Override
@@ -118,7 +118,7 @@ public class EntiteitenOpgeslagenITest {
         try {
             Thread.sleep(500);
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            LOGGER.trace("{}", e);
         }
         AbstractSender entiteitenOpgeslagenRequestSender = new AbstractSender<VerwijderEntiteitenRequest, SoortEntiteitEnEntiteitId>() {
             @Override
@@ -143,7 +143,7 @@ public class EntiteitenOpgeslagenITest {
             try {
                 Thread.sleep(5000);
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                LOGGER.trace("{}", e);
             }
             nl.lakedigital.djfc.commons.json.Identificatie gevonden = zoeken(soortEntiteitEnEntiteitId1);
 
@@ -153,7 +153,7 @@ public class EntiteitenOpgeslagenITest {
             try {
                 Thread.sleep(500);
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                LOGGER.trace("{}", e);
             }
         }
     }
@@ -163,7 +163,7 @@ public class EntiteitenOpgeslagenITest {
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                LOGGER.trace("{}", e);
             }
             nl.lakedigital.djfc.commons.json.Identificatie gevonden = zoeken(soortEntiteitEnEntiteitId1);
 
@@ -173,7 +173,7 @@ public class EntiteitenOpgeslagenITest {
             try {
                 Thread.sleep(100);
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                LOGGER.trace("{}", e);
             }
         }
     }
@@ -187,7 +187,7 @@ public class EntiteitenOpgeslagenITest {
                 try {
                     Thread.sleep(1000);
                 } catch (InterruptedException e) {
-                    e.printStackTrace();
+                    LOGGER.trace("{}", e);
                 }
             }
         }
