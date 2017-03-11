@@ -21,6 +21,7 @@ import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.CoreMatchers.nullValue;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.fail;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:applicationContext-it.xml")
@@ -152,7 +153,11 @@ public class EntiteitenOpgeslagenITest {
 
             LOGGER.debug("Gevonden: {}", gevonden);
 
-            assertThat(gevonden.getIdentificatie(), is(notNullValue()));
+            if (gevonden != null) {
+                assertThat(gevonden.getIdentificatie(), is(notNullValue()));
+            } else {
+                fail("gevonden is null, dit mag niet voorkomen");
+            }
             try {
                 Thread.sleep(500);
             } catch (InterruptedException e) {
