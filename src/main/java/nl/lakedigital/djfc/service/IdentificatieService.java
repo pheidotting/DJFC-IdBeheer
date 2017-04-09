@@ -25,7 +25,7 @@ public class IdentificatieService {
     }
 
     public void opslaan(Identificatie identificatie) {
-        LOGGER.debug("{}",identificatie);
+        LOGGER.debug("{}", identificatie);
         if (zoek(identificatie.getSoortEntiteit(), identificatie.getEntiteitId()) == null) {
             identificatieRepository.opslaan(identificatie);
         }
@@ -37,5 +37,9 @@ public class IdentificatieService {
 
     public Identificatie zoek(String soortEntiteit, Long entiteitId) {
         return identificatieRepository.zoek(soortEntiteit, entiteitId);
+    }
+
+    public Identificatie zoekOpIdentificatieCode(String identificatieCode) {
+        return identificatieRepository.zoekOpIdentificatieCode(identificatieCode);
     }
 }

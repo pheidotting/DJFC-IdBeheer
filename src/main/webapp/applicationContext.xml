@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:jdbc="http://www.springframework.org/schema/jdbc"
        xmlns:tx="http://www.springframework.org/schema/tx"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:mvc="http://www.springframework.org/schema/mvc"
-       xsi:schemaLocation="http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.2.xsd
-        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+       xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
         http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd">
@@ -20,7 +18,7 @@
         <property name="targetMethod" value="initLogging"/>
         <property name="arguments">
             <list>
-                <value>pa.log4j.xml</value>
+                <value>id.log4j.xml</value>
             </list>
         </property>
     </bean>
@@ -51,9 +49,9 @@
             <props>
                 <prop key="hibernate.connection.release_mode">after_statement</prop>
                 <prop key="hibernate.format_sql">true</prop>
-                <prop key="hibernate.use_sql_comments">true</prop>
+                <!--<prop key="hibernate.use_sql_comments">true</prop>-->
                 <prop key="hibernate.hbm2ddl.auto">validate</prop>
-                <!--<prop key="hibernate.show_sql">true</prop>-->
+                <prop key="hibernate.show_sql">true</prop>
             </props>
         </property>
     </bean>

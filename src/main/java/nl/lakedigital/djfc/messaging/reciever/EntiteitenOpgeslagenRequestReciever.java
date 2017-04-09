@@ -9,8 +9,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.inject.Inject;
-import java.util.function.Function;
-import java.util.stream.Collectors;
 
 public class EntiteitenOpgeslagenRequestReciever extends AbstractReciever<EntiteitenOpgeslagenRequest> {
     private static final Logger LOGGER = LoggerFactory.getLogger(EntiteitenOpgeslagenRequestReciever.class);
@@ -23,6 +21,7 @@ public class EntiteitenOpgeslagenRequestReciever extends AbstractReciever<Entite
     }
 
     @Override
+    @Transactional
     public void verwerkMessage(EntiteitenOpgeslagenRequest entiteitenOpgeslagenRequest) {
 //        LOGGER.debug("Opslaan {} entiteiten",entiteitenOpgeslagenRequest.getSoortEntiteitEnEntiteitIds().size());
         for(SoortEntiteitEnEntiteitId soortEntiteitEnEntiteitId:entiteitenOpgeslagenRequest.getSoortEntiteitEnEntiteitIds()){

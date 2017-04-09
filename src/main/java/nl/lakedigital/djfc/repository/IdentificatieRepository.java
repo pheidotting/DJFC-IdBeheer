@@ -1,6 +1,7 @@
 package nl.lakedigital.djfc.repository;
 
 import nl.lakedigital.djfc.domain.Identificatie;
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -33,6 +34,8 @@ public class IdentificatieRepository {
 
     @Transactional
     public void verwijder(Identificatie identificatie) {
+        LOGGER.debug("Verwijder {}", ReflectionToStringBuilder.toString(identificatie));
+
         getSession().delete(identificatie);
     }
 
@@ -75,6 +78,23 @@ public class IdentificatieRepository {
         query.setParameter("identificatie", identificatieCode);
 
         return  !query.list().isEmpty();
+    }
+
+    @Transactional(readOnly = true)
+    public Identificatie zoekOpIdentificatieCode(String identificatieCode) {
+        LOGGER.debug("Komt {} al voor?", identificatieCode);
+        Query query = getSession().getNamedQuery("Identificatie.zoekOpIdentificatieCode");
+        query.setParameter("identificatie", identificatieCode);
+
+        List<Identificatie> identificaties = query.list();
+
+        if (!identificaties.isEmpty()) {
+            LOGGER.debug("Gevonden Identificatie {}", identificaties.get(0).toString());
+            return identificaties.get(0);
+        } else {
+            LOGGER.debug("Geen gevonden Identificatie");
+            return null;
+        }
     }
 
     @Transactional(readOnly = true)
