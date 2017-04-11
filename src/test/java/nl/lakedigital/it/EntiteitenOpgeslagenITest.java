@@ -43,7 +43,7 @@ public class EntiteitenOpgeslagenITest {
             verstuurEntiteitenOpgeslagenRequest(entiteitenOpgeslagenRequest);
         }
 
-        //        controleer(opgeslagenEntiteiten);
+        controleer(opgeslagenEntiteiten);
 
         for (SoortEntiteitEnEntiteitId soortEntiteitEnEntiteitId : opgeslagenEntiteiten) {
             VerwijderEntiteitenRequest verwijderEntiteitenRequest = new VerwijderEntiteitenRequest();
@@ -53,7 +53,7 @@ public class EntiteitenOpgeslagenITest {
             verstuurEntiteitenVerwijderdRequest(verwijderEntiteitenRequest);
         }
 
-        //        controleerNietAanwezig(opgeslagenEntiteiten);
+        controleerNietAanwezig(opgeslagenEntiteiten);
     }
 
     @Test
@@ -64,7 +64,7 @@ public class EntiteitenOpgeslagenITest {
 
         verstuurEntiteitenOpgeslagenRequest(entiteitenOpgeslagenRequest);
 
-        //        controleer(entiteitenOpgeslagenRequest.getSoortEntiteitEnEntiteitIds());
+        controleer(entiteitenOpgeslagenRequest.getSoortEntiteitEnEntiteitIds());
 
         for (SoortEntiteitEnEntiteitId soortEntiteitEnEntiteitId : opgeslagenEntiteiten) {
             VerwijderEntiteitenRequest verwijderEntiteitenRequest = new VerwijderEntiteitenRequest();
@@ -74,7 +74,7 @@ public class EntiteitenOpgeslagenITest {
             verstuurEntiteitenVerwijderdRequest(verwijderEntiteitenRequest);
         }
 
-        //        controleerNietAanwezig(opgeslagenEntiteiten);
+        controleerNietAanwezig(opgeslagenEntiteiten);
     }
 
     private List<SoortEntiteitEnEntiteitId> maakLijst(Long van, Long tot) {
