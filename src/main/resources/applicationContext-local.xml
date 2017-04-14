@@ -16,7 +16,7 @@
     <mvc:annotation-driven/>
 
     <bean id="MariaDbServer" class="nl.lakedigital.djfc.mariadbserver.MariaDBServer" init-method="init">
-        <property name="poortNummer" value="3309"/>
+        <property name="poortNummer" value="3320"/>
     </bean>
 
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close" depends-on="MariaDbServer">
@@ -24,7 +24,7 @@
         <!--<property name="url" value="jdbc:mysql://localhost:3306/kattekoop" />-->
         <!--<property name="username" value="dev" />-->
         <!--<property name="password" value="dev" />-->
-        <property name="url" value="jdbc:mysql://localhost:3309/test" />
+        <property name="url" value="jdbc:mysql://localhost:3320/test"/>
         <property name="username" value="" />
         <property name="password" value="" />
     </bean>
