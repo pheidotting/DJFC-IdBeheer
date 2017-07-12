@@ -3,3 +3,4 @@ activemq-data/*
 target/*
 *.iml
 *.versionsBackup
+*.log
