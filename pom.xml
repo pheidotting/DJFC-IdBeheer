@@ -421,8 +421,8 @@
                                         <resource>
                                             <directory>${basedir}/src/main/resources/dev</directory>
                                             <includes>
-                                                <include>id.app.properties</include>
-                                                <include>id.log4j.xml</include>
+                                                <include>dev/id.app.properties</include>
+                                                <include>dev/id.log4j.xml</include>
                                             </includes>
                                         </resource>
                                     </resources>
