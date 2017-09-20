@@ -27,7 +27,6 @@ public class IdentificatieRepository {
         try {
             return sessionFactory.getCurrentSession();
         } catch (HibernateException e) {
-            LOGGER.trace("{}", e);
             return sessionFactory.openSession();
         }
     }
