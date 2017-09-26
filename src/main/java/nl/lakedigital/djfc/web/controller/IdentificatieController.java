@@ -38,6 +38,32 @@ public class IdentificatieController {
         return zoekIdentificatieResponse;
     }
 
+    @RequestMapping(method = RequestMethod.GET, value = "/zoekenMeerdere/{zoekterm}")
+    @ResponseBody
+    public ZoekIdentificatieResponse zoekenMeerdere(@PathVariable("zoekterm") String zoekterm) {
+        ZoekIdentificatieResponse zoekIdentificatieResponse = new ZoekIdentificatieResponse();
+        String[] zoekterms = zoekterm.split("&zoekterm=");
+
+        for (String s : zoekterms) {
+            String[] split = s.split(",");
+            String soortEntiteit = split[0];
+            Long entiteitId = Long.valueOf(split[1]);
+
+            Identificatie identificatie = identificatieService.zoek(soortEntiteit, entiteitId);
+
+            nl.lakedigital.djfc.commons.json.Identificatie json = new nl.lakedigital.djfc.commons.json.Identificatie();
+            if (identificatie != null) {
+                json.setId(identificatie.getId());
+                json.setEntiteitId(identificatie.getEntiteitId());
+                json.setIdentificatie(identificatie.getIdentificatie());
+                json.setSoortEntiteit(identificatie.getSoortEntiteit());
+
+                zoekIdentificatieResponse.getIdentificaties().add(json);
+            }
+        }
+
+        return zoekIdentificatieResponse;
+    }
     @RequestMapping(method = RequestMethod.GET, value = "/zoeken/{soortEntiteit}/{entiteitId}")
     @ResponseBody
     public ZoekIdentificatieResponse zoeken(@PathVariable("soortEntiteit") String soortEntiteit, @PathVariable("entiteitId") Long entiteitId) {
