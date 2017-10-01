@@ -45,7 +45,7 @@
         <dependency>
             <groupId>nl.lakedigital.djfc</groupId>
             <artifactId>djfc-clients</artifactId>
-            <version>5.48</version>
+            <version>5.49</version>
         </dependency>
         <dependency>
             <groupId>nl.lakedigital.as</groupId>
@@ -421,8 +421,8 @@
                                         <resource>
                                             <directory>${basedir}/src/main/resources/dev</directory>
                                             <includes>
-                                                <include>dev/id.app.properties</include>
-                                                <include>dev/id.log4j.xml</include>
+                                                <include>id.app.properties</include>
+                                                <include>id.log4j.xml</include>
                                             </includes>
                                         </resource>
                                     </resources>
