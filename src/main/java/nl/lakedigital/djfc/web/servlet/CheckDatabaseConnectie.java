@@ -15,7 +15,6 @@ public class CheckDatabaseConnectie implements Runnable {
 
     @Override
     public void run() {
-        LOGGER.info("check database connectie");
         identificatieRepository.getSession().getTransaction().begin();
         identificatieRepository.getSession().createSQLQuery("/* ping */ SELECT 1").uniqueResult();
         identificatieRepository.getSession().getTransaction().commit();
