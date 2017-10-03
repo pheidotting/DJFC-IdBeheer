@@ -22,7 +22,6 @@ public class ScheduleServlet implements ServletContextListener {
 
     @Override
     public void contextInitialized(ServletContextEvent servletContextEvent) {
-        LOGGER.debug("Gogogogog");
         WebApplicationContextUtils.getRequiredWebApplicationContext(servletContextEvent.getServletContext()).getAutowireCapableBeanFactory().autowireBean(this);
 
         scheduler = Executors.newSingleThreadScheduledExecutor();
