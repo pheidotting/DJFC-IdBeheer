@@ -72,7 +72,7 @@ public class IdentificatieRepository {
 
     @Transactional(readOnly = true)
     private boolean komtCodeAlVoor(String identificatieCode) {
-        LOGGER.debug("Komt {} al voor?", identificatieCode);
+        LOGGER.debug("trace {} al voor?", identificatieCode);
         Query query = getSession().getNamedQuery("Identificatie.zoekOpIdentificatieCode");
         query.setParameter("identificatie", identificatieCode);
 
@@ -81,17 +81,17 @@ public class IdentificatieRepository {
 
     @Transactional(readOnly = true)
     public Identificatie zoekOpIdentificatieCode(String identificatieCode) {
-        LOGGER.debug("Komt {} al voor?", identificatieCode);
+        LOGGER.debug("trace {} al voor?", identificatieCode);
         Query query = getSession().getNamedQuery("Identificatie.zoekOpIdentificatieCode");
         query.setParameter("identificatie", identificatieCode);
 
         List<Identificatie> identificaties = query.list();
 
         if (!identificaties.isEmpty()) {
-            LOGGER.debug("Gevonden Identificatie {}", identificaties.get(0).toString());
+            LOGGER.trace("Gevonden Identificatie {}", identificaties.get(0).toString());
             return identificaties.get(0);
         } else {
-            LOGGER.debug("Geen gevonden Identificatie");
+            LOGGER.trace("Geen gevonden Identificatie");
             return null;
         }
     }
@@ -105,10 +105,10 @@ public class IdentificatieRepository {
         List<Identificatie> identificaties=query.list();
 
         if(!identificaties.isEmpty()){
-            LOGGER.debug("Gevonden Identificatie {}",identificaties.get(0).toString());
+            LOGGER.trace("Gevonden Identificatie {}", identificaties.get(0).toString());
             return identificaties.get(0);
         }else{
-            LOGGER.debug("Geen gevonden Identificatie");
+            LOGGER.trace("Geen gevonden Identificatie");
             return null;
         }
     }
