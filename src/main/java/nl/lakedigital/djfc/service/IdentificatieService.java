@@ -36,7 +36,12 @@ public class IdentificatieService {
     }
 
     public Identificatie zoek(String soortEntiteit, Long entiteitId) {
-        return identificatieRepository.zoek(soortEntiteit, entiteitId);
+        Identificatie identificatie = identificatieRepository.zoek(soortEntiteit, entiteitId);
+        if (identificatie == null) {
+            identificatie = new Identificatie(soortEntiteit, entiteitId);
+            identificatieRepository.opslaan(identificatie);
+        }
+        return identificatie;
     }
 
     public Identificatie zoekOpIdentificatieCode(String identificatieCode) {
