@@ -41,6 +41,7 @@ public class IdentificatieController {
     @RequestMapping(method = RequestMethod.GET, value = "/zoekenMeerdere/{zoekterm}")
     @ResponseBody
     public ZoekIdentificatieResponse zoekenMeerdere(@PathVariable("zoekterm") String zoekterm) {
+        LOGGER.info("Zoeken meerdere identificaties met zoekterm {}", zoekterm);
         ZoekIdentificatieResponse zoekIdentificatieResponse = new ZoekIdentificatieResponse();
         String[] zoekterms = zoekterm.split("&zoekterm=");
 
