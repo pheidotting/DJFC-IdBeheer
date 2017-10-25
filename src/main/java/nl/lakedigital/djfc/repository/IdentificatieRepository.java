@@ -81,7 +81,7 @@ public class IdentificatieRepository {
 
     @Transactional(readOnly = true)
     public Identificatie zoekOpIdentificatieCode(String identificatieCode) {
-        LOGGER.debug("trace {} al voor?", identificatieCode);
+        LOGGER.trace("komt {} al voor?", identificatieCode);
         Query query = getSession().getNamedQuery("Identificatie.zoekOpIdentificatieCode");
         query.setParameter("identificatie", identificatieCode);
 
